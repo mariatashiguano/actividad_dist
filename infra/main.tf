@@ -3,9 +3,9 @@
 # =========================================================
 terraform {
   cloud {
-    organization = "org-distribuida-carlos-practica" 
+    organization = "actgrupal" 
     workspaces {
-      name = "qa-and-main" 
+      name = "actividadg1" 
     }
   }
 }
@@ -20,7 +20,7 @@ provider "aws" {
 variable "github_repo" {
   description = "URL del repositorio para clonar la app"
   type        = string
-  default     = "https://github.com/carlosrm12/practica_dis.git" 
+  default     = "https://github.com/mariatashiguano/actividad_dist.git" 
 }
 
 variable "commit_hash" {
@@ -157,7 +157,7 @@ resource "aws_security_group" "db_sg" {
 resource "aws_instance" "db_server" {
   ami           = data.aws_ami.al2023.id
   instance_type = "t3.micro"             
-  key_name      = "Laptop"
+  key_name      = "Pr1"
   vpc_security_group_ids = [aws_security_group.db_sg.id]
 
   # Forzamos que la DB esté en una subnet específica si quieres, o dejamos que AWS elija
